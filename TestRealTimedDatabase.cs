@@ -1,5 +1,5 @@
-using System.Collections.Generic;//¸®½ºÆ®
-using System.Collections;//ÄÚ·çÆ¾
+using System.Collections.Generic;//ë¦¬ìŠ¤íŠ¸
+using System.Collections;//ì½”ë£¨í‹´
 using System;
 using System.IO;
 using System.IO.Compression;
@@ -9,7 +9,7 @@ using TMPro;
 using Firebase;
 using Firebase.Database;
 
-public class TestRealTimedDatabase : MonoBehaviour//https://papabee.tistory.com/337
+public class TestRealTimedDatabase : MonoBehaviour
 {
     [SerializeField] private Transform parentPrefab;
     [SerializeField] private Transform childPrefab;
@@ -21,7 +21,7 @@ public class TestRealTimedDatabase : MonoBehaviour//https://papabee.tistory.com/
     private string sceneDataPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/DataFolder/SceneData";
     private DatabaseReference myDatabaseRef;
     private string sceneDataJson = "";
-    private TransformData tfd;//¾À¿¡ ÀÖ´Â ¿ÀºêÁ§Æ®µéÀÇ Á¤º¸°¡ µé¾î ÀÖ´Ù.
+    private TransformData tfd;//ì”¬ì— ìˆëŠ” ì˜¤ë¸Œì íŠ¸ë“¤ì˜ ì •ë³´ê°€ ë“¤ì–´ ìˆë‹¤.
     private List<OBJ_DataCustomParsing> objData = new List<OBJ_DataCustomParsing>();
 
     private Transform parentPrefabClone;
@@ -101,7 +101,7 @@ public class TestRealTimedDatabase : MonoBehaviour//https://papabee.tistory.com/
             testText.text = e.ToString();
         }
     }
-    public void RemoveData()//Å° °ª±îÁö »èÁ¦ÇÏ°í½ÍÀ¸¸é SetValueAsync(null)À» »ç¿ë
+    public void RemoveData()//í‚¤ ê°’ê¹Œì§€ ì‚­ì œí•˜ê³ ì‹¶ìœ¼ë©´ SetValueAsync(null)ì„ ì‚¬ìš©
     {
         myDatabaseRef.SetValueAsync(null);
     }
@@ -118,9 +118,9 @@ public class TestRealTimedDatabase : MonoBehaviour//https://papabee.tistory.com/
                     writer.Write(jsonData);
                 }
             }
-            compressedData = memoryStream.ToArray();//¾ĞÃàµÈ byte[] µ¥ÀÌÅÍ
+            compressedData = memoryStream.ToArray();//ì••ì¶•ëœ byte[] ë°ì´í„°
         }
-        zipData = Convert.ToBase64String(compressedData);////¾ĞÃàµÈ byte[] µ¥ÀÌÅÍ¸¦ stringÀ¸·Î ÀÎÄÚµù
+        zipData = Convert.ToBase64String(compressedData);////ì••ì¶•ëœ byte[] ë°ì´í„°ë¥¼ stringìœ¼ë¡œ ì¸ì½”ë”©
         Debug.Log("Compressed JSON Data saved to file");
         return zipData;
         
